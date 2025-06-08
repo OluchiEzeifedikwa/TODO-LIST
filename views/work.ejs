@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <div class="main-content">
+  <h1 class="todo-header">Work Tasks</h1>
+<form action="/work" method="post" class="todopost">
+  <input type="text" name="title" placeholder="New Todo" style="color: white;">
+  <select name="priority">
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+  </select>
+  <button type="submit" class="post-button">Add Todo</button>
+</form>
+<% works.forEach(work => { %>
+  <div class="card <%= work.priority.toLowerCase() %> <%= work.completed ? 'completed' : '' %>">
+    <div class="todo-actions">
+      <form action="/work/<%= work.id %>/update" method="post" style="display: inline-block;">
+        <input type="checkbox" name="completed" value="true" <%= work.completed ? 'checked' : '' %> onchange="this.form.submit()">
+      </form>
+      <%= work.title %>
+      <form action="/work/<%= work.id %>/priority" method="post" style="display: inline-block;">
+        <select name="priority" onchange="this.form.submit()">
+          <option value="High" <%= work.priority === 'High' ? 'selected' : '' %>>High</option>
+          <option value="Medium" <%= work.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+          <option value="Low" <%= work.priority === 'Low' ? 'selected' : '' %>>Low</option>
+        </select>
+      </form>
+
+      <form action="/work/<%= work.id %>/delete" method="post" style="display: inline-block;">
+        <button type="submit" class="delete-button">Delete</button>
+      </form>
+    </div>
+  </div>
+<% }); %>
+</div>
+</body>
+</html>
