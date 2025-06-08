@@ -13,6 +13,8 @@ const prisma = new PrismaClient();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
+
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,6 +23,10 @@ app.use((req, res, next) => {
     console.log(req.method, req.url);
     next();
   });
+
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+  });  
 
 
 // Get all todos
