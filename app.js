@@ -159,7 +159,7 @@ app.post('/work/:id/delete', async (req, res) => {
     res.redirect('/work')
 });
 
-app.get('*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
