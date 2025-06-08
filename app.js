@@ -24,10 +24,6 @@ app.use((req, res, next) => {
     next();
   });
 
-app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-  });  
-
 
 // Get all todos
 // app.get('/todos', async (req, res) => {
@@ -162,6 +158,11 @@ app.post('/work/:id/delete', async (req, res) => {
     
     res.redirect('/work')
 });
+
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 
 
 const port = 3000;
