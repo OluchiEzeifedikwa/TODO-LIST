@@ -5,8 +5,7 @@ body {
     background-color: black;
   }
   
-  
-  .navbar {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -39,6 +38,11 @@ body {
     color: #fff;
     text-decoration: none;
   }
+
+  .edit-button {
+    background-color: transparent;
+    border: 0cap;
+  }
   
   .toggle-button {
     display: none;
@@ -48,13 +52,9 @@ body {
     margin-left: 220px;
     padding: 20px;
     width: 65vw;
+    text-align: center;
   }
   
-  /* .todo-header {
-    margin-top: 0;
-    text-align: center;
-    color: #fff;
-  } */
   .todo-header {
     margin-top: 0;
     text-align: center;
@@ -62,11 +62,10 @@ body {
     font-size: calc(20px + 2vw);
   }
   
-
   .todo-picture {
     width: 81vw;
   }
-  
+ 
   .card {
     margin-left: 20px;
     background-color: color-mix(in srgb, slategray 50%, black 100%);
@@ -89,7 +88,7 @@ body {
   }
   
   .update-button, .delete-button {
-    padding: 10px 20px;
+    padding: 2px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -101,8 +100,9 @@ body {
   }
   
   .delete-button {
-    background-color: black;
+    background-color: transparent;
     color: #fff;
+    margin-bottom: 2px;
   }
   
   
@@ -143,7 +143,46 @@ body {
     text-decoration: line-through;
   }
 
+  .todo-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   
+  .todo-details {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .todo-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+  
+  .todo-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
   
   @media (max-width: 1024px) {
     .navbar {
@@ -155,6 +194,18 @@ body {
     }
     .todo-picture {
         width: 80vw;
+    }
+
+    .todo-details {
+      font-size: 14px;
+    }
+    
+    .todo-icons {
+      gap: 10px;
+    }
+    
+    .fa-pen, .fa-trash-alt {
+      font-size: 18px;
     }
   }
   
@@ -200,23 +251,50 @@ body {
       padding: 20px;
     }
   
-    /* .todo-header {
-      font-size: calc(18px + 1vw);
-    } */
-  
+
+   
     .todo-picture {
       width: 100vw;
+    }
+
+    .todo-actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .todo-right {
+      margin-left: 0;
+      margin-top: 10px;
     }
   }
   
   @media (max-width: 425px) {
-    /* .todo-header {
-      font-size: calc(16px + 1vw);
-    } */
-
     .todo-header {
         font-size: calc(14px + 2vw);
       }
+
+      .todo-details {
+        font-size: 14px;
+        flex-direction: column;
+      }
+      
+      .todo-icons {
+        gap: 5px;
+      }
+      
+      .fa-pen, .fa-trash-alt {
+        font-size: 18px;
+      }
+
+      .todo-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .todo-right {
+    margin-left: 0;
+    margin-top: 10px;
+  }
     
   }
   
@@ -230,14 +308,29 @@ body {
         font-size: calc(12px + 2vw);
     }
 
-    /* .todo-header {
-      font-size: calc(14px + 1vw);
-      margin-left: 70px;
-    } */
+    .class {
+      width: 800vw;
+
+    }
+
     .todo-picture {
       width: 82vw;
     }
+
+    .todo-details {
+      font-size: 12px;
+    }
+    
+    .todo-icons {
+      gap: 3px;
+    }
+    
+    .fa-pen, .fa-trash-alt {
+      font-size: 16px;
+    }
   }
 
-  
-  
+ 
+
+
+

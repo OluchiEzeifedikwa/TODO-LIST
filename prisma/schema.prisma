@@ -17,13 +17,18 @@ datasource db {
 model Todo {
   id         String     @id @default(cuid())
   title      String
+  date       DateTime
   completed  Boolean
   priority   String
+  assignee   String
+
 }
 
 model Work {
   id         String     @id @default(cuid())
   title      String
+  date       DateTime
   completed  Boolean
   priority   String
+  assignee   String
 }
