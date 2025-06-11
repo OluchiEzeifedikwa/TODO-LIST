@@ -1,336 +1,299 @@
 body {
-    margin: 1;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+}
+
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 4px solid #333;
+  width: 200px;
+  height: 100%;
+  background-color: color-mix(in srgb, slategray 30%, black 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin-bottom: 30px;
+}
+
+.navbar li:hover {
+  background-color: grey;
+  border-radius: 20px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.edit-button {
+  background-color: transparent;
+  border: none;
+}
+
+.toggle-button {
+  display: none;
+}
+
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+  width: 65vw;
+  text-align: center;
+}
+
+.todo-header {
+  margin-top: 0;
+  text-align: center;
+  color: #fff;
+  font-size: calc(20px + 2vw);
+}
+
+.todo-picture {
+  width: 81vw;
+}
+
+.card {
+  margin-left: 40px;
+  background-color: color-mix(in srgb, slategray 50%, black 100%);
+  padding: 5px;
+  color: white;
+  border: 4px solid color-mix(in srgb, slategray 50%, black 100%);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .todo-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card .todo-actions {
+  margin-top: 10px;
+}
+
+.update-button, .delete-button {
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-button {
+  background-color: #333;
+  color: #fff;
+}
+
+.delete-button {
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.todopost {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.todopost input[type="text"] {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #ccc;
+  background-color: color-mix(in srgb, slategray 50%, black 100%);
+}
+
+.post-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: color-mix(in srgb, slategray 50%, black 100%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.card.low {
+  border-left: 5px solid green;
+}
+
+.card.medium {
+  border-left: 5px solid yellow;
+}
+
+.card.high {
+  border-left: 5px solid red;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.todo-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-details {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.todo-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.todo-icons {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    width: 150px;
+    height: 800vh;
+  }
+  .main-content {
+    margin-left: 180px;
+  }
+  .todo-picture {
+    width: 80vw;
+  }
+  .todo-details {
+    font-size: 14px;
+  }
+  .todo-icons {
+    gap: 10px;
+  }
+  .fa-pen, .fa-trash-alt {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
     position: fixed;
     top: 0;
-    left: 0;
-    border: 4px solid #333;
+    left: -200px;
+    transition: left 0.5s;
     width: 200px;
-    height: 800vh;
-    background-color: color-mix(in srgb, slategray 30%, black 100%);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
+    height: 200vh;
   }
-  
-  .navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .navbar li {
-    margin-bottom: 30px;
-  }
-  
-  .navbar li :hover {
-    background-color: grey;
-    border-radius: 20px;
-  }
-  
-  .navbar a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .edit-button {
-    background-color: transparent;
-    border: 0cap;
-  }
-  
-  .toggle-button {
-    display: none;
-  }
-  
-  .main-content {
-    margin-left: 220px;
-    padding: 20px;
-    width: 65vw;
-    text-align: center;
-  }
-  
   .todo-header {
-    margin-top: 0;
-    text-align: center;
-    color: #fff;
-    font-size: calc(20px + 2vw);
+    font-size: calc(16px + 2vw);
   }
-  
-  .todo-picture {
-    width: 81vw;
+  .navbar.show {
+    left: 0;
   }
- 
-  .card {
-    margin-left: 20px;
+  .toggle-button {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0px;
     background-color: color-mix(in srgb, slategray 50%, black 100%);
-    padding: 5px;
-    color: white;
-    border: 4px solid color-mix(in srgb, slategray 50%, black 100%);
-    border-radius: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card .todo-title {
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .card .todo-actions {
-    margin-top: 10px;
-  }
-  
-  .update-button, .delete-button {
-    padding: 2px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .update-button {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .delete-button {
-    background-color: transparent;
-    color: #fff;
-    margin-bottom: 2px;
-  }
-  
-  
-  .todopost {
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-  
-  .todopost input[type="text"] {
     padding: 10px;
-    width: 70%;
-    border: 1px solid #ccc;
-    background-color: color-mix(in srgb, slategray 50%, black 100%);
-  }
-  
-  .post-button {
-    padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    background-color: color-mix(in srgb, slategray 50%, black 100%);
-    color: #fff;
     cursor: pointer;
   }
-  
-  .card.low {
-    border-left: 5px solid green;
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
   }
-  
-  .card.medium {
-    border-left: 5px solid yellow;
+  .main-content {
+    margin-left: 25px;
+    padding: 20px;
   }
-  
-  .card.high {
-    border-left: 5px solid red;
+  .todo-picture {
+    width: 100vw;
   }
-  
-  .completed {
-    text-decoration: line-through;
-  }
-
   .todo-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .todo-details {
-    flex-grow: 1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .todo-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: auto;
-  }
-  
-  .todo-icons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  
-  input[type="checkbox"]:checked {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-
-  
-  @media (max-width: 1024px) {
-    .navbar {
-      width: 150px;
-      height: 800vh;
-    }
-    .main-content {
-      margin-left: 180px;
-    }
-    .todo-picture {
-        width: 80vw;
-    }
-
-    .todo-details {
-      font-size: 14px;
-    }
-    
-    .todo-icons {
-      gap: 10px;
-    }
-    
-    .fa-pen, .fa-trash-alt {
-      font-size: 18px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: -200px;
-      transition: left 0.5s;
-      width: 200px;
-      height: 200vh;
-      /* background-color: color-mix(in srgb, slategray 50%, black 100%); */
-    }
-
-    .todo-header {
-        font-size: calc(16px + 2vw);
-      }
-  
-    .navbar.show {
-      left: 0;
-    }
-  
-    .toggle-button {
-      display: block;
-      position: absolute;
-      top: 10px;
-      right: 0px;
-      background-color: color-mix(in srgb, slategray 50%, black 100%);
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  
-    .bar {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 5px 0;
-    }
-  
-    .main-content {
-      margin-left: 25px;
-      padding: 20px;
-    }
-  
-
-   
-    .todo-picture {
-      width: 100vw;
-    }
-
-    .todo-actions {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    
-    .todo-right {
-      margin-left: 0;
-      margin-top: 10px;
-    }
-  }
-  
-  @media (max-width: 425px) {
-    .todo-header {
-        font-size: calc(14px + 2vw);
-      }
-
-      .todo-details {
-        font-size: 14px;
-        flex-direction: column;
-      }
-      
-      .todo-icons {
-        gap: 5px;
-      }
-      
-      .fa-pen, .fa-trash-alt {
-        font-size: 18px;
-      }
-
-      .todo-actions {
     flex-direction: column;
     align-items: flex-start;
   }
-  
   .todo-right {
     margin-left: 0;
     margin-top: 10px;
   }
-    
+}
+
+@media (max-width: 425px) {
+  .todo-header {
+    font-size: calc(14px + 2vw);
   }
-  
-  @media (max-width: 320px) {
-    .navbar {
-        height: 800vh;
-        background-color: color-mix(in srgb, slategray 50%, black 100%);
-    }
-
-    .todo-header {
-        font-size: calc(12px + 2vw);
-    }
-
-    .class {
-      width: 800vw;
-
-    }
-
-    .todo-picture {
-      width: 82vw;
-    }
-
-    .todo-details {
-      font-size: 12px;
-    }
-    
-    .todo-icons {
-      gap: 3px;
-    }
-    
-    .fa-pen, .fa-trash-alt {
-      font-size: 16px;
-    }
+  .todo-details {
+    font-size: 14px;
+    flex-direction: column;
   }
+  .todo-icons {
+    gap: 5px;
+  }
+  .fa-pen, .fa-trash-alt {
+    font-size: 18px;
+  }
+  .todo-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .todo-right {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
 
- 
-
-
-
+@media (max-width: 320px) {
+  .navbar {
+    height: 800vh;
+    background-color: color-mix(in srgb, slategray 50%, black 100%);
+  }
+  .todo-header {
+    font-size: calc(12px + 2vw);
+  }
+  .todo-picture {
+    width: 82vw;
+  }
+  .todo-details {
+    font-size: 12px;
+  }
+  .todo-icons {
+    gap: 3px;
+  }
+  .fa-pen, .fa-trash-alt {
+    font-size: 16px;
+  }
+}

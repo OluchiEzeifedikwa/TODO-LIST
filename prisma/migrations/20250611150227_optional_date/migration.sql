@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Todo" ALTER COLUMN "date" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Work" ALTER COLUMN "date" DROP NOT NULL;

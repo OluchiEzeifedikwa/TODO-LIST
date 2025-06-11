@@ -17,7 +17,7 @@ datasource db {
 model Todo {
   id         String     @id @default(cuid())
   title      String
-  date       DateTime
+  date       DateTime?
   completed  Boolean
   priority   String
   assignee   String
@@ -27,7 +27,7 @@ model Todo {
 model Work {
   id         String     @id @default(cuid())
   title      String
-  date       DateTime
+  date       DateTime?
   completed  Boolean
   priority   String
   assignee   String

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Todo</title>
+    <title>Edit Work</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -55,30 +55,30 @@
             background-color: #ccc;
         }
 
-        .personal-heading {
+        .work-heading {
             text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1 class="personal-heading">Edit Your Personal Tasks!</h1>
-    <% if (todo) { %>
+    <h1 class="work-heading">Edit Your Work Tasks!</h1>
+    <% if (work) { %>
         <div class="card">
-            <form action="/todos/<%= todo.id %>/update-both" method="post" class="grid-container">
+            <form action="/work/<%= work.id %>/update-both" method="post" class="grid-container">
                 <div class="grid-item">
                     <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" value="<%= todo.title %>">
+                    <input type="text" id="title" name="title" value="<%= work.title %>">
                 </div>
                 <div class="grid-item">
                     <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" value="<%= new Date(todo.date).toISOString().slice(0, 10) %>">
+                    <input type="date" id="date" name="date" value="<%= work.date ? new Date(work.date).toISOString().slice(0, 10) : '' %>">
                 </div>
                 <div class="grid-item">
                     <label for="priority">Priority:</label>
                     <select id="priority" name="priority">
-                        <option value="Low" <%= todo.priority === 'Low' ? 'selected' : '' %>>Low</option>
-                        <option value="Medium" <%= todo.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
-                        <option value="High" <%= todo.priority === 'High' ? 'selected' : '' %>>High</option>
+                        <option value="Low" <%= work.priority === 'Low' ? 'selected' : '' %>>Low</option>
+                        <option value="Medium" <%= work.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+                        <option value="High" <%= work.priority === 'High' ? 'selected' : '' %>>High</option>
                     </select>
                 </div>
                 <div class="grid-item">
@@ -87,7 +87,7 @@
             </form>
         </div>
     <% } else { %>
-        <p style="color: #fff;">Todo not found.</p>
+        <p style="color: #fff;">Work not found.</p>
     <% } %>
 </body>
 </html>
