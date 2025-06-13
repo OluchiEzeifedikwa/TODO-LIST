@@ -11,12 +11,12 @@ import {
 
 const router = express.Router();
 
-router.get('/todos', getTodos);
-router.post('/todos', createTodo);
-router.post('/todos/:id/update', updateTodo);
-router.get('/todos/:id/edit', editTodo);
-router.post('/todos/:id/update-both', updateTodoBoth);
-router.post('/todos/:id/priority', updateTodoPriority);
-router.post('/todos/:id/delete', deleteTodo);
+router.get('/', getTodos);
+router.post('/', createTodo);
+router.post('/:id/update', updateTodo);
+router.get('/:id/edit', editTodo);
+router.post('/:id/update-both', updateTodoBoth);
+router.post('/:id/priority', updateTodoPriority);
+router.post('/:id/delete', deleteTodo);
 
 export default router;

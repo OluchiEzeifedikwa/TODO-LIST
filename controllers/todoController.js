@@ -1,8 +1,8 @@
-import { PrismaClient } from '../generated/prisma/index.js';
+import { PrismaClient } from  '../generated/prisma/index.js';
 
 const prisma = new PrismaClient();
 
-export const getTodos = async (req, res) => {
+export const getTodos = async (_req, res) => {
   const todos = await prisma.todo.findMany();
   const events = todos.filter(todo => todo.date !== null).map(todo => ({
     title: todo.title,
@@ -35,7 +35,7 @@ export const createTodo = async (req, res) => {
     const todo = await prisma.todo.create({
       data: createData,
     });
-    res.redirect('/todos');
+    res.redirect('/');
   } catch (error) {
     console.error(error);
     res.status(500).send('Error creating todo');
@@ -53,7 +53,7 @@ export const updateTodo = async (req, res) => {
       completed: !todo.completed,
     },
   });
-  res.redirect('/todos');
+  res.redirect('/');
 };
 
 export const editTodo = async (req, res) => {
@@ -91,7 +91,7 @@ export const updateTodoBoth = async (req, res) => {
       where: { id },
       data: updateData,
     });
-    res.redirect('/todos');
+    res.redirect('/');
   } catch (error) {
     console.error(error);
     res.status(500).send('Error updating todo');
@@ -107,7 +107,7 @@ export const updateTodoPriority = async (req, res) => {
       priority,
     },
   });
-  res.redirect('/todos');
+  res.redirect('/');
 };
 
 export const deleteTodo = async (req, res) => {
@@ -117,5 +117,5 @@ export const deleteTodo = async (req, res) => {
     where: { id },
   });
   
-  res.redirect('/todos')
+  res.redirect('/')
 };

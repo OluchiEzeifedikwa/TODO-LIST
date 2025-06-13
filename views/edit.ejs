@@ -64,7 +64,7 @@
     <h1 class="personal-heading">Edit Your Personal Tasks!</h1>
     <% if (todo) { %>
         <div class="card">
-            <form action="/todos/<%= todo.id %>/update-both" method="post" class="grid-container">
+            <form action="/<%= todo.id %>/update-both" method="post" class="grid-container">
                 <div class="grid-item">
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title" value="<%= todo.title %>">
