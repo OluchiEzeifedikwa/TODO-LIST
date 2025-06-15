@@ -98,18 +98,6 @@ export const updateWorkBoth = async (req, res) => {
   }
 };
 
-export const updateWorkPriority = async (req, res) => {
-  const { id } = req.params;
-  const { priority } = req.body;
-  await prisma.work.update({
-    where: { id },
-    data: {
-      priority,
-    },
-  });
-  res.redirect('/work');
-};
-
 export const deleteWork = async (req, res) => {
   console.log('Delete route called');
   const { id } = req.params;

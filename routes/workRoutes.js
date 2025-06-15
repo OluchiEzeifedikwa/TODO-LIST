@@ -5,7 +5,6 @@ import {
   updateWork, 
   editWork, 
   updateWorkBoth, 
-  updateWorkPriority, 
   deleteWork 
 } from '../controllers/workController.js';
 
@@ -16,7 +15,6 @@ router.post('/work', createWork);
 router.post('/work/:id/update', updateWork);
 router.get('/work/:id/edit', editWork);
 router.post('/work/:id/update-both', updateWorkBoth);
-router.post('/work/:id/priority', updateWorkPriority);
 router.post('/work/:id/delete', deleteWork);
 
 export default router;

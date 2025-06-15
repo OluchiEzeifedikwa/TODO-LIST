@@ -4,8 +4,7 @@ import {
   createTodo, 
   updateTodo, 
   editTodo, 
-  updateTodoBoth, 
-  updateTodoPriority, 
+  updateTodoBoth,  
   deleteTodo 
 } from '../controllers/todoController.js';
 
@@ -16,7 +15,6 @@ router.post('/', createTodo);
 router.post('/:id/update', updateTodo);
 router.get('/:id/edit', editTodo);
 router.post('/:id/update-both', updateTodoBoth);
-router.post('/:id/priority', updateTodoPriority);
 router.post('/:id/delete', deleteTodo);
 
 export default router;

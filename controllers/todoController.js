@@ -98,18 +98,6 @@ export const updateTodoBoth = async (req, res) => {
   }
 };
 
-export const updateTodoPriority = async (req, res) => {
-  const { id } = req.params;
-  const { priority } = req.body;
-  await prisma.todo.update({
-    where: { id },
-    data: {
-      priority,
-    },
-  });
-  res.redirect('/');
-};
-
 export const deleteTodo = async (req, res) => {
   console.log('Delete route called');
   const { id } = req.params;
